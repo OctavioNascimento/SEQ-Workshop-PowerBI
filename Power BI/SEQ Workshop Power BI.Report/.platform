@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "SEQ Workshop Power BI"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1bc99d6b-2695-472d-84ba-db7d34cb1e6f"
+  }
+}
