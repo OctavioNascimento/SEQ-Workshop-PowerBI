@@ -12,7 +12,7 @@
       },
       {
         "name": "PBI_ProTooling",
-        "value": "[\"DevMode\"]"
+        "value": "[\"DevMode\",\"DaxQueryView_Desktop\"]"
       },
       {
         "name": "PBI_QueryOrder",
@@ -1066,9 +1066,12 @@
               "    TREATAS(",
               "        VALUES(ufo_sightings_scrubbed[Date]),",
               "        delayed_flights[Date]",
+              "    ),",
+              "    TREATAS(",
+              "        VALUES(ufo_sightings_scrubbed[city]),",
+              "        airports[CITY]",
               "    )",
-              ")",
-              ""
+              ")"
             ],
             "formatString": "0",
             "lineageTag": "0c390421-7110-44b3-b078-7d0bcd0fc9a0"

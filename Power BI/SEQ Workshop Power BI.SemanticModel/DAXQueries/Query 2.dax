@@ -1,0 +1,2 @@
+EVALUATE
+	DISTINCT('ufo_sightings_scrubbed'[city])
