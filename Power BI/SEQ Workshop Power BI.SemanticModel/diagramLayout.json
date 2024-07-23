@@ -4,12 +4,78 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
+        "x": 18.160221205704374,
         "y": 0
       },
-      "nodes": [],
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 32.276560949228333
+          },
+          "nodeIndex": "airlines",
+          "nodeLineageTag": "aece3aed-b734-4aa7-9d40-939820ba5a75",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 370.90556317036589,
+            "y": 155.56829418127282
+          },
+          "nodeIndex": "airports",
+          "nodeLineageTag": "5bcbefc8-edf9-486a-83a8-02c600a876b6",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1109.9746939533729,
+            "y": 642.19560429034186
+          },
+          "nodeIndex": "cancellation_codes",
+          "nodeLineageTag": "72548591-1cff-4a13-a76b-3134b83ad2e4",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 676.60877251071611,
+            "y": 391.86508484092263
+          },
+          "nodeIndex": "delayed_flights",
+          "nodeLineageTag": "544b2738-a441-448f-8cdd-74bfda502728",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 936.90725528243422,
+            "y": 0
+          },
+          "nodeIndex": "ufo_sightings_scrubbed",
+          "nodeLineageTag": "f3d23e16-5b9e-46dc-a649-4e652467c7fb",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        }
+      ],
       "name": "All tables",
-      "zoomValue": 100,
+      "zoomValue": 63.287087723233981,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

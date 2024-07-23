@@ -1,5 +1,5 @@
 {
-  "compatibilityLevel": 1550,
+  "compatibilityLevel": 1567,
   "model": {
     "annotations": [
       {
@@ -13,6 +13,10 @@
       {
         "name": "PBI_ProTooling",
         "value": "[\"DevMode\"]"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"ufo_sightings_scrubbed\",\"airlines\",\"airports\",\"cancellation_codes\",\"delayed_flights\"]"
       }
     ],
     "culture": "en-US",
@@ -26,6 +30,1089 @@
           },
           "contentType": "json"
         }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "33ba1a00-e89f-c844-c316-2c45642dca20",
+        "fromColumn": "ORIGIN_AIRPORT",
+        "fromTable": "delayed_flights",
+        "toColumn": "IATA_CODE",
+        "toTable": "airports"
+      },
+      {
+        "name": "84de31c5-0ee3-1449-b325-305d28c8656e",
+        "crossFilteringBehavior": "bothDirections",
+        "fromCardinality": "one",
+        "fromColumn": "IATA_CODE",
+        "fromTable": "airlines",
+        "toColumn": "IATA_CODE",
+        "toTable": "airports"
+      },
+      {
+        "name": "3df9abfd-2fec-8ede-7fac-3ce8fefdc5c7",
+        "fromColumn": "CANCELLATION_REASON",
+        "fromTable": "delayed_flights",
+        "toColumn": "CANCELLATION_REASON",
+        "toTable": "cancellation_codes"
+      },
+      {
+        "name": "c4f52262-0105-5abc-12a7-cfceac6713ee",
+        "crossFilteringBehavior": "bothDirections",
+        "fromColumn": "DATE",
+        "fromTable": "delayed_flights",
+        "toCardinality": "many",
+        "toColumn": "date",
+        "toTable": "ufo_sightings_scrubbed"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "ufo_sightings_scrubbed",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
+            "lineageTag": "c2969b14-7cea-473c-8a0e-fd0681ad900c",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "city",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8cf664c8-b060-47f9-baf2-f4409f29f9e2",
+            "sourceColumn": "city",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "state",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "75332af8-830f-4b76-ae31-5c3e711a4d44",
+            "sourceColumn": "state",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "country",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8131ec59-e9a3-4cc6-bd41-064737dfe6cf",
+            "sourceColumn": "country",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "shape",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f7321211-b561-4231-9b8c-ba3aa864b897",
+            "sourceColumn": "shape",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "duration (seconds)",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "9c7c9760-3c21-4526-9b74-d57ec5b2756b",
+            "sourceColumn": "duration (seconds)",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "duration (hours/min)",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6aff0445-b191-4007-9f51-0c7b521d9866",
+            "sourceColumn": "duration (hours/min)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "comments",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "60b75bb0-da2b-4758-b264-4a4a23c06237",
+            "sourceColumn": "comments",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date posted",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "766f15f0-46f4-450d-9b8e-260dca1fbe04",
+            "sourceColumn": "date posted",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "latitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "7a63de5f-902e-41c2-a151-bc7303b349f3",
+            "sourceColumn": "latitude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "longitude ",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "ad45f55d-04b3-4717-b78a-a7a21746e476",
+            "sourceColumn": "longitude ",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Time"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Time",
+            "lineageTag": "f7c8958b-5674-49b8-ab93-5288678e088a",
+            "sourceColumn": "hour",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataType": "int64",
+            "expression": "YEAR(ufo_sightings_scrubbed[date])",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "b2869c7d-562b-4cb8-90ba-95f31e4f2bef",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "lineageTag": "f3d23e16-5b9e-46dc-a649-4e652467c7fb",
+        "measures": [
+          {
+            "name": "TOTAL UFO",
+            "expression": "COUNTROWS(ufo_sightings_scrubbed)",
+            "formatString": "0",
+            "lineageTag": "1a47689c-deb4-4a6e-853a-66ca04e50dd3"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ufo_sightings_scrubbed",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\C676201\\Downloads\\ufo_sightings_scrubbed\\ufo_sightings_scrubbed.csv\"),[Delimiter=\",\", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Replaced Value\" = Table.ReplaceValue(#\"Promoted Headers\",\"q\",\"\",Replacer.ReplaceText,{\"latitude\"}),",
+                "    #\"Replaced Value1\" = Table.ReplaceValue(#\"Replaced Value\",\"`\",\"\",Replacer.ReplaceText,{\"duration (seconds)\"}),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Replaced Value1\",{{\"datetime\", type datetime}, {\"city\", type text}, {\"state\", type text}, {\"country\", type text}, {\"shape\", type text}, {\"duration (seconds)\", Int64.Type}, {\"duration (hours/min)\", type text}, {\"comments\", type text}, {\"date posted\", type date}, {\"latitude\", type number}, {\"longitude \", type number}}),",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(#\"Changed Type\", \"datetime\", \"datetime - Copy\"),",
+                "    #\"Extracted Time\" = Table.TransformColumns(#\"Duplicated Column\",{{\"datetime - Copy\", DateTime.Time, type time}}),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Extracted Time\",{{\"datetime\", type date}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Changed Type1\",{{\"datetime - Copy\", \"hour\"}, {\"datetime\", \"date\"}})",
+                "in",
+                "    #\"Renamed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "airlines",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "IATA_CODE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5c0b3b4b-610a-4a57-8707-b07ce7765fe2",
+            "sourceColumn": "IATA_CODE",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AIRLINE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "88f8f5f4-91e9-4aa4-bbf2-df74ce0302c3",
+            "sourceColumn": "AIRLINE",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "aece3aed-b734-4aa7-9d40-939820ba5a75",
+        "partitions": [
+          {
+            "name": "airlines",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\C676201\\Downloads\\delayed_flights\\airlines.csv\"),[Delimiter=\",\", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"Column1\", type text}, {\"Column2\", type text}}),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Changed Type\", [PromoteAllScalars=true]),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"IATA_CODE\", type text}, {\"AIRLINE\", type text}})",
+                "in",
+                "    #\"Changed Type1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "airports",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "IATA_CODE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "be8b5bb0-c3a7-4b3c-8113-5bf78a747873",
+            "sourceColumn": "IATA_CODE",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AIRPORT",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6e905451-6677-4fd5-b2a5-dfbacc5300a9",
+            "sourceColumn": "AIRPORT",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CITY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2e6ca9a7-e7d6-40c5-a7ab-89d395f2f904",
+            "sourceColumn": "CITY",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "STATE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a5af0196-5dd7-48d7-bda2-3b990baf88f2",
+            "sourceColumn": "STATE",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "COUNTRY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4eac04bc-56df-404f-8510-32b5f0383bde",
+            "sourceColumn": "COUNTRY",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LATITUDE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "2639515d-b65f-4f63-900d-9ce8e8baf502",
+            "sourceColumn": "LATITUDE",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LONGITUDE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "a4fa20f8-f535-41dd-9ab1-3469d3147f75",
+            "sourceColumn": "LONGITUDE",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "5bcbefc8-edf9-486a-83a8-02c600a876b6",
+        "partitions": [
+          {
+            "name": "airports",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\C676201\\Downloads\\delayed_flights\\airports.csv\"),[Delimiter=\",\", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"IATA_CODE\", type text}, {\"AIRPORT\", type text}, {\"CITY\", type text}, {\"STATE\", type text}, {\"COUNTRY\", type text}, {\"LATITUDE\", type number}, {\"LONGITUDE\", type number}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "cancellation_codes",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "CANCELLATION_REASON",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d5ac2181-68e9-464b-bef6-1c54e34eb78b",
+            "sourceColumn": "CANCELLATION_REASON",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CANCELLATION_DESCRIPTION",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "737915e5-3dcf-432e-a898-71c2d3380b51",
+            "sourceColumn": "CANCELLATION_DESCRIPTION",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "72548591-1cff-4a13-a76b-3134b83ad2e4",
+        "partitions": [
+          {
+            "name": "cancellation_codes",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\C676201\\Downloads\\delayed_flights\\cancellation_codes.csv\"),[Delimiter=\",\", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"Column1\", type text}, {\"Column2\", type text}}),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Changed Type\", [PromoteAllScalars=true]),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"CANCELLATION_REASON\", type text}, {\"CANCELLATION_DESCRIPTION\", type text}})",
+                "in",
+                "    #\"Changed Type1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "delayed_flights",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "AIRLINE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a03f269b-99bf-4e91-92b7-ff458231e133",
+            "sourceColumn": "AIRLINE",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FLIGHT_NUMBER",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "9a435868-e3de-4b4b-aa39-52544d2a299b",
+            "sourceColumn": "FLIGHT_NUMBER",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TAIL_NUMBER",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ea4150d3-5495-468c-bd9e-1628bc6b5551",
+            "sourceColumn": "TAIL_NUMBER",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ORIGIN_AIRPORT",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4bfdad07-6a96-43a4-b71c-621d9486ed9c",
+            "sourceColumn": "ORIGIN_AIRPORT",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DESTINATION_AIRPORT",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8b7150c8-6c6f-482f-b7bf-1a119476ebac",
+            "sourceColumn": "DESTINATION_AIRPORT",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SCHEDULED_DEPARTURE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ce649701-623f-4f7d-9fe5-909e804dfbe6",
+            "sourceColumn": "SCHEDULED_DEPARTURE",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DEPARTURE_TIME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "2d8e36c6-338b-4481-a59e-ea03721df84e",
+            "sourceColumn": "DEPARTURE_TIME",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DEPARTURE_DELAY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "1498c26d-70df-43dd-a86e-9cd42fbac3e7",
+            "sourceColumn": "DEPARTURE_DELAY",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TAXI_OUT",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e4ca77ae-53ee-44cf-8e68-6e4d20f71e54",
+            "sourceColumn": "TAXI_OUT",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "WHEELS_OFF",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "4c670fe7-70be-43d4-985f-aa33b8cd75ce",
+            "sourceColumn": "WHEELS_OFF",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "SCHEDULED_TIME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e6d311b0-ebfc-4e19-87b1-402cbb87726c",
+            "sourceColumn": "SCHEDULED_TIME",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ELAPSED_TIME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "39d6276e-b2f6-463e-91a7-d21ef8c3efaa",
+            "sourceColumn": "ELAPSED_TIME",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "AIR_TIME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "927ff791-60d3-4b66-b45d-b000778e30c4",
+            "sourceColumn": "AIR_TIME",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DISTANCE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "0b021bb1-612d-46b4-ae49-5b7d582ea4ef",
+            "sourceColumn": "DISTANCE",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "WHEELS_ON",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "3ec554c7-1912-442a-8b43-461ac68d435a",
+            "sourceColumn": "WHEELS_ON",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TAXI_IN",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "04998b5e-9c3a-472e-92a4-8bbc1ffc0ce1",
+            "sourceColumn": "TAXI_IN",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "SCHEDULED_ARRIVAL",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "aec5b420-0af7-4644-9730-826a1424441d",
+            "sourceColumn": "SCHEDULED_ARRIVAL",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ARRIVAL_TIME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "f259af2d-c4fe-4226-85b4-43d2330ebe26",
+            "sourceColumn": "ARRIVAL_TIME",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ARRIVAL_DELAY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "961987e7-9309-4e9a-87fe-0cd08c814c8f",
+            "sourceColumn": "ARRIVAL_DELAY",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DIVERTED",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "cc335561-a136-4c3d-b435-c60ac18c9821",
+            "sourceColumn": "DIVERTED",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "CANCELLED",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "9c1bc91b-4b75-4a60-88a5-6ec232b282ee",
+            "sourceColumn": "CANCELLED",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "CANCELLATION_REASON",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "dc9842ee-8fdd-44ae-bb9f-9a718103d5c4",
+            "sourceColumn": "CANCELLATION_REASON",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AIR_SYSTEM_DELAY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "c3731b5a-1998-445d-b121-ad9240de2301",
+            "sourceColumn": "AIR_SYSTEM_DELAY",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "SECURITY_DELAY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "55ee2a1a-7a86-4cbc-97c9-425c8e50d6d3",
+            "sourceColumn": "SECURITY_DELAY",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "AIRLINE_DELAY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "57ea18ce-28af-41db-bd1e-f71b18d5a4a6",
+            "sourceColumn": "AIRLINE_DELAY",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "LATE_AIRCRAFT_DELAY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "57ad5830-d115-4d42-a788-847ffe5bd21e",
+            "sourceColumn": "LATE_AIRCRAFT_DELAY",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "WEATHER_DELAY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ef573bec-1d88-4db9-9843-4d17b5a00305",
+            "sourceColumn": "WEATHER_DELAY",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "FIXED_ARRIVAL",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "expression": [
+              "VAR minutos = RIGHT(delayed_flights[SCHEDULED_ARRIVAL],2)",
+              "VAR hora = MID(delayed_flights[SCHEDULED_ARRIVAL],1,LEN(delayed_flights[SCHEDULED_ARRIVAL])-2)",
+              "RETURN TIME(hora,minutos,0)"
+            ],
+            "formatString": "General Date",
+            "isDataTypeInferred": true,
+            "lineageTag": "6c5c3957-a7e5-4b82-8b98-caad60569f30",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "YEAR",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "53919c03-d627-4447-872e-49e2dd6a0324",
+            "sourceColumn": "YEAR",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MONTH",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "41fce0dc-2ea9-422f-b6fc-3f00bcf0c887",
+            "sourceColumn": "MONTH",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DAY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "d62bb203-74c1-4eb6-99fc-43fdbfc0c974",
+            "sourceColumn": "DAY",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DAY_OF_WEEK",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "f1046d2c-0c83-4939-8879-339e26ad03c1",
+            "sourceColumn": "DAY_OF_WEEK",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DATE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "dateTime",
+            "expression": "DATE(delayed_flights[YEAR],delayed_flights[MONTH],delayed_flights[DAY])",
+            "formatString": "Short Date",
+            "lineageTag": "de8d1cf1-6b22-407c-b343-0b0fc10dc443",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "lineageTag": "544b2738-a441-448f-8cdd-74bfda502728",
+        "measures": [
+          {
+            "name": "ATRASOS POR OVNI",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    COUNTROWS(delayed_flights),",
+              "    TREATAS(",
+              "        VALUES(ufo_sightings_scrubbed[Date]),",
+              "        delayed_flights[Date]",
+              "    )",
+              ")",
+              ""
+            ],
+            "formatString": "0",
+            "lineageTag": "0c390421-7110-44b3-b078-7d0bcd0fc9a0"
+          },
+          {
+            "name": "TOTAL FLIGHTS",
+            "expression": "COUNTROWS(delayed_flights)",
+            "formatString": "0",
+            "lineageTag": "48847079-2f6b-4845-be25-349954ef559a"
+          },
+          {
+            "name": "OVNI?",
+            "expression": [
+              "",
+              "var logic = CALCULATE(",
+              "    COUNTROWS(delayed_flights),",
+              "    TREATAS(",
+              "        VALUES(ufo_sightings_scrubbed[Date]),",
+              "        delayed_flights[Date]",
+              "    )",
+              ")",
+              "",
+              "RETURN IF(ISBLANK(logic),\"FALSO\",\"VERDADEIRO\")"
+            ],
+            "lineageTag": "cf3851eb-18f0-4a73-b88d-b06a142d7c5b"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "delayed_flights",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\C676201\\Downloads\\delayed_flights\\delayed_flights.csv\"),[Delimiter=\",\", Columns=31, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"YEAR\", Int64.Type}, {\"MONTH\", Int64.Type}, {\"DAY\", Int64.Type}, {\"DAY_OF_WEEK\", Int64.Type}, {\"AIRLINE\", type text}, {\"FLIGHT_NUMBER\", Int64.Type}, {\"TAIL_NUMBER\", type text}, {\"ORIGIN_AIRPORT\", type text}, {\"DESTINATION_AIRPORT\", type text}, {\"SCHEDULED_DEPARTURE\", Int64.Type}, {\"DEPARTURE_TIME\", Int64.Type}, {\"DEPARTURE_DELAY\", Int64.Type}, {\"TAXI_OUT\", Int64.Type}, {\"WHEELS_OFF\", Int64.Type}, {\"SCHEDULED_TIME\", Int64.Type}, {\"ELAPSED_TIME\", Int64.Type}, {\"AIR_TIME\", Int64.Type}, {\"DISTANCE\", Int64.Type}, {\"WHEELS_ON\", Int64.Type}, {\"TAXI_IN\", Int64.Type}, {\"SCHEDULED_ARRIVAL\", Int64.Type}, {\"ARRIVAL_TIME\", Int64.Type}, {\"ARRIVAL_DELAY\", Int64.Type}, {\"DIVERTED\", Int64.Type}, {\"CANCELLED\", Int64.Type}, {\"CANCELLATION_REASON\", type text}, {\"AIR_SYSTEM_DELAY\", Int64.Type}, {\"SECURITY_DELAY\", Int64.Type}, {\"AIRLINE_DELAY\", Int64.Type}, {\"LATE_AIRCRAFT_DELAY\", Int64.Type}, {\"WEATHER_DELAY\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
       }
     ]
   }

@@ -1,5 +1,5 @@
 {
-  "config": "{\"version\":\"5.55\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU06\",\"version\":\"5.56\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "config": "{\"version\":\"5.55\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU06\",\"version\":\"5.56\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
   "layoutOptimization": 0,
   "resourcePackages": [
     {
@@ -20,12 +20,82 @@
   "sections": [
     {
       "config": "{}",
+      "displayName": "Page 3",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "2f38862f381578ccc958",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"bb5670840079d7bb37d5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":56.76296795303628,\"y\":33.11173130593783,\"z\":0,\"width\":1166.7943412568568,\"height\":652.7741314599173,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"map\",\"projections\":{\"Y\":[{\"queryRef\":\"airports.LATITUDE\"}],\"X\":[{\"queryRef\":\"airports.LONGITUDE\"}],\"Size\":[{\"queryRef\":\"delayed_flights.TOTAL FLIGHTS\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"airports\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"delayed_flights\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"LATITUDE\"},\"Name\":\"airports.LATITUDE\",\"NativeReferenceName\":\"LATITUDE\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"LONGITUDE\"},\"Name\":\"airports.LONGITUDE\",\"NativeReferenceName\":\"LONGITUDE\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"TOTAL FLIGHTS\"},\"Name\":\"delayed_flights.TOTAL FLIGHTS\",\"NativeReferenceName\":\"TOTAL FLIGHTS\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"FillRule\":{\"Input\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"delayed_flights\"}},\"Property\":\"ARRIVAL_DELAY\"}},\"Function\":0}},\"FillRule\":{\"linearGradient3\":{\"min\":{\"color\":{\"Literal\":{\"Value\":\"'#118DFF'\"}}},\"mid\":{\"color\":{\"Literal\":{\"Value\":\"'midColor'\"}}},\"max\":{\"color\":{\"Literal\":{\"Value\":\"'#AB0909'\"}}},\"nullColoringStrategy\":{\"strategy\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}]}}],\"bubbles\":[{\"properties\":{\"bubbleSize\":{\"expr\":{\"Literal\":{\"Value\":\"-15L\"}}}}}],\"heatMap\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color100\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#B10707'\"}}}}},\"color50\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0}}}}},\"color0\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#052F56'\"}}}}},\"unit\":{\"expr\":{\"Literal\":{\"Value\":\"'pixels'\"}}}}}],\"mapStyles\":[{\"properties\":{\"mapTheme\":{\"expr\":{\"Literal\":{\"Value\":\"'road'\"}}}}}],\"mapControls\":[{\"properties\":{\"geocodingCulture\":{\"expr\":{\"Literal\":{\"Value\":\"'pt-BR'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 652.77,
+          "width": 1166.79,
+          "x": 56.76,
+          "y": 33.11,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
       "displayName": "Page 1",
       "displayOption": 1,
       "filters": "[]",
       "height": 720.00,
       "name": "4a8db6321151704106d1",
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0543b01c0d913c8eb7b6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":65.8664299234493,\"y\":0,\"z\":2000,\"width\":1060.7239652255482,\"height\":360.89314728889934,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"scatterChart\",\"projections\":{\"Y\":[{\"queryRef\":\"delayed_flights.UFO?\"}],\"X\":[{\"queryRef\":\"Sum(delayed_flights.YEAR)\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"delayed_flights\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"ATRASOS POR OVNI\"},\"Name\":\"delayed_flights.UFO?\",\"NativeReferenceName\":\"UFO?\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"YEAR\"},\"Name\":\"Sum(delayed_flights.YEAR)\",\"NativeReferenceName\":\"YEAR\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"trend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"displayName\":{\"expr\":{\"Literal\":{\"Value\":\"'Trend line 1'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 360.89,
+          "width": 1060.72,
+          "x": 65.87,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"0a78c23b2b790d9ee4e0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":447.34283656342654,\"z\":1000,\"width\":245.62689492286304,\"height\":241.51024305264747,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"delayed_flights.UFO?\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"delayed_flights\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"ATRASOS POR OVNI\"},\"Name\":\"delayed_flights.UFO?\",\"NativeReferenceName\":\"UFO?\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"ATRASOS POR OVNI\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 241.51,
+          "width": 245.63,
+          "x": 0.00,
+          "y": 447.34,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"4b4c50202c5d6c27a672\",\"layouts\":[{\"id\":0,\"position\":{\"x\":216.81033183135398,\"y\":359.52092999882746,\"z\":0,\"width\":975.6464932410929,\"height\":360.89314728889934,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"scatterChart\",\"projections\":{\"X\":[{\"queryRef\":\"Sum(ufo_sightings_scrubbed.year)\",\"active\":true}],\"Y\":[{\"queryRef\":\"ufo_sightings_scrubbed.TOTAL UFO\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"u\",\"Entity\":\"ufo_sightings_scrubbed\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"u\"}},\"Property\":\"year\"},\"Name\":\"Sum(ufo_sightings_scrubbed.year)\",\"NativeReferenceName\":\"year\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"u\"}},\"Property\":\"TOTAL UFO\"},\"Name\":\"ufo_sightings_scrubbed.TOTAL UFO\",\"NativeReferenceName\":\"TOTAL UFO\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 360.89,
+          "width": 975.65,
+          "x": 216.81,
+          "y": 359.52,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Page 2",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "95b4124e3001ea993905",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"db3de9729b3745853cb9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":86.44968927452722,\"y\":23.32769393122163,\"z\":0,\"width\":1167.7569138511533,\"height\":653.1754300742057,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"map\",\"projections\":{\"X\":[{\"queryRef\":\"ufo_sightings_scrubbed.longitude \"}],\"Y\":[{\"queryRef\":\"ufo_sightings_scrubbed.latitude\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"u\",\"Entity\":\"ufo_sightings_scrubbed\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"u\"}},\"Property\":\"longitude \"},\"Name\":\"ufo_sightings_scrubbed.longitude \",\"NativeReferenceName\":\"longitude \"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"u\"}},\"Property\":\"latitude\"},\"Name\":\"ufo_sightings_scrubbed.latitude\",\"NativeReferenceName\":\"latitude\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"dataPoint\":[{\"properties\":{},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}]}}],\"bubbles\":[{\"properties\":{\"bubbleSize\":{\"expr\":{\"Literal\":{\"Value\":\"-15L\"}}}}}],\"heatMap\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color100\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#B10707'\"}}}}},\"color50\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0}}}}},\"color0\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#052F56'\"}}}}},\"unit\":{\"expr\":{\"Literal\":{\"Value\":\"'pixels'\"}}}}}],\"mapStyles\":[{\"properties\":{\"mapTheme\":{\"expr\":{\"Literal\":{\"Value\":\"'road'\"}}}}}],\"mapControls\":[{\"properties\":{\"geocodingCulture\":{\"expr\":{\"Literal\":{\"Value\":\"'pt-BR'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 653.18,
+          "width": 1167.76,
+          "x": 86.45,
+          "y": 23.33,
+          "z": 0.00
+        }
+      ],
       "width": 1280.00
     }
   ]
